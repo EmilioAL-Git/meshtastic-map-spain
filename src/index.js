@@ -19,12 +19,12 @@ const optionsList = [
         name: 'help',
         alias: 'h',
         type: Boolean,
-        description: 'Display this usage guide.'
+        description: 'Mostrar esta guía de ayuda.'
     },
     {
         name: "port",
         type: Number,
-        description: "Port to serve web ui and api from.",
+        description: "Puerto para la interfaz web y la API.",
     },
 ];
 
@@ -35,11 +35,11 @@ const options = commandLineArgs(optionsList);
 if(options.help){
     const usage = commandLineUsage([
         {
-            header: 'Meshtastic Map',
-            content: 'A map of all Meshtastic nodes heard via MQTT.',
+            header: 'Mapa Meshtastic España',
+            content: 'Un mapa de los nodos Meshtastic recibidos mediante MQTT en España.',
         },
         {
-            header: 'Options',
+            header: 'Opciones',
             optionList: optionsList,
         },
     ]);
@@ -88,87 +88,87 @@ app.get('/api', async (req, res) => {
     const links = [
         {
             "path": "/api",
-            "description": "This page",
+            "description": "Esta página",
         },
         {
             "path": "/api/v1/nodes",
-            "description": "All meshtastic nodes",
+            "description": "Todos los nodos meshtastic",
             "params": {
-                "role": "Filter by role",
-                "hardware_model": "Filter by hardware model",
+                "role": "Filtrar por rol",
+                "hardware_model": "Filtrar por modelo de hardware",
             },
         },
         {
             "path": "/api/v1/nodes/:nodeId",
-            "description": "A specific meshtastic node",
+            "description": "Un nodo meshtastic concreto",
         },
         {
             "path": "/api/v1/nodes/:nodeId/device-metrics",
-            "description": "Device metrics for a meshtastic node",
+            "description": "Métricas de dispositivo para un nodo meshtastic",
             "params": {
-                "count": "How many results to return",
-                "time_from": "Only include metrics created after this unix timestamp (milliseconds)",
-                "time_to": "Only include metrics created before this unix timestamp (milliseconds)",
+                "count": "Número de resultados a devolver",
+                "time_from": "Sólo incluir métricas creadas después de este timestamp unix (milisegundos)",
+                "time_to": "Sólo incluir métricas creadas antes de este timestamp unix (milisegundos)",
             },
         },
         {
             "path": "/api/v1/nodes/:nodeId/environment-metrics",
-            "description": "Environment metrics for a meshtastic node",
+            "description": "Métricas ambientales para un nodo meshtastic",
             "params": {
-                "count": "How many results to return",
-                "time_from": "Only include metrics created after this unix timestamp (milliseconds)",
-                "time_to": "Only include metrics created before this unix timestamp (milliseconds)",
+                "count": "Número de resultados a devolver",
+                "time_from": "Sólo incluir métricas creadas después de este timestamp unix (milisegundos)",
+                "time_to": "Sólo incluir métricas creadas antes de este timestamp unix (milisegundos)",
             },
         },
         {
             "path": "/api/v1/nodes/:nodeId/power-metrics",
-            "description": "Power metrics for a meshtastic node",
+            "description": "Métricas de potencia para un nodo meshtastic",
             "params": {
-                "count": "How many results to return",
-                "time_from": "Only include metrics created after this unix timestamp (milliseconds)",
-                "time_to": "Only include metrics created before this unix timestamp (milliseconds)",
+                "count": "Número de resultados a devolver",
+                "time_from": "Sólo incluir métricas creadas después de este timestamp unix (milisegundos)",
+                "time_to": "Sólo incluir métricas creadas antes de este timestamp unix (milisegundos)",
             },
         },
         {
             "path": "/api/v1/nodes/:nodeId/neighbours",
-            "description": "Neighbours for a meshtastic node",
+            "description": "Vecinos para un nodo meshtastic",
         },
         {
             "path": "/api/v1/nodes/:nodeId/traceroutes",
-            "description": "Trace routes for a meshtastic node",
+            "description": "Rutas de trazado para un nodo meshtastic",
         },
         {
             "path": "/api/v1/nodes/:nodeId/position-history",
-            "description": "Position history for a meshtastic node",
+            "description": "Historial de posiciones para un nodo meshtastic",
             "params": {
-                "time_from": "Only include positions created after this unix timestamp (milliseconds)",
-                "time_to": "Only include positions created before this unix timestamp (milliseconds)",
+                "time_from": "Sólo incluir posiciones creadas después de este timestamp unix (milisegundos)",
+                "time_to": "Sólo incluir posiciones creadas antes de este timestamp unix (milisegundos)",
             },
         },
         {
             "path": "/api/v1/stats/hardware-models",
-            "description": "Database statistics about known hardware models",
+            "description": "Estadísticas de la base de datos sobre modelos de hardware conocidos",
         },
         {
             "path": "/api/v1/text-messages",
-            "description": "Text messages",
+            "description": "Mensajes de texto",
             "params": {
-                "to": "Only include messages to this node id",
-                "from": "Only include messages from this node id",
-                "channel_id": "Only include messages for this channel id",
-                "gateway_id": "Only include messages gated to mqtt by this node id",
-                "last_id": "Only include messages before or after this id, based on results order",
-                "count": "How many results to return",
-                "order": "Order to return results in: asc, desc",
+                "to": "Sólo incluir mensajes a este ID de nodo",
+                "from": "Sólo incluir mensajes desde este ID de nodo",
+                "channel_id": "Sólo incluir mensajes para este ID de canal",
+                "gateway_id": "Sólo incluir mensajes enviados a MQTT por este ID de nodo",
+                "last_id": "Sólo incluir mensajes antes o después de este ID, según el orden de resultados",
+                "count": "Número de resultados a devolver",
+                "order": "Orden para devolver resultados: asc, desc",
             },
         },
         {
             "path": "/api/v1/text-messages/embed",
-            "description": "Text messages rendered as an embeddable HTML page.",
+            "description": "Mensajes de texto renderizados como una página HTML incrustable.",
         },
         {
             "path": "/api/v1/waypoints",
-            "description": "Waypoints",
+            "description": "Puntos de referencia",
         },
     ];
 
@@ -186,7 +186,7 @@ app.get('/api', async (req, res) => {
         return line;
     }).join("");
 
-    res.send(`<b>API Docs</b><br/><ul>${linksHtml}</ul>`);
+    res.send(`<b>Documentación de la API</b><br/><ul>${linksHtml}</ul>`);
 
 });
 
@@ -217,7 +217,7 @@ app.get('/api/v1/nodes', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -237,7 +237,7 @@ app.get('/api/v1/nodes/:nodeId', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -249,7 +249,7 @@ app.get('/api/v1/nodes/:nodeId', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -272,7 +272,7 @@ app.get('/api/v1/nodes/:nodeId/device-metrics', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -299,7 +299,7 @@ app.get('/api/v1/nodes/:nodeId/device-metrics', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -322,7 +322,7 @@ app.get('/api/v1/nodes/:nodeId/environment-metrics', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -349,7 +349,7 @@ app.get('/api/v1/nodes/:nodeId/environment-metrics', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -372,7 +372,7 @@ app.get('/api/v1/nodes/:nodeId/power-metrics', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -399,7 +399,7 @@ app.get('/api/v1/nodes/:nodeId/power-metrics', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -419,7 +419,7 @@ app.get('/api/v1/nodes/:nodeId/mqtt-metrics', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -434,7 +434,7 @@ app.get('/api/v1/nodes/:nodeId/mqtt-metrics', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -454,7 +454,7 @@ app.get('/api/v1/nodes/:nodeId/neighbours', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -490,7 +490,7 @@ app.get('/api/v1/nodes/:nodeId/neighbours', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -511,7 +511,7 @@ app.get('/api/v1/nodes/:nodeId/traceroutes', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -552,7 +552,7 @@ app.get('/api/v1/nodes/:nodeId/traceroutes', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -579,7 +579,7 @@ app.get('/api/v1/nodes/:nodeId/position-history', async (req, res) => {
         // make sure node exists
         if(!node){
             res.status(404).json({
-                message: "Not Found",
+                message: "No encontrado",
             });
             return;
         }
@@ -641,7 +641,7 @@ app.get('/api/v1/nodes/:nodeId/position-history', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -666,7 +666,7 @@ app.get('/api/v1/stats/hardware-models', async (req, res) => {
            return {
                count: result._count.hardware_model,
                hardware_model: result.hardware_model,
-               hardware_model_name: HardwareModel.valuesById[result.hardware_model] ?? "UNKNOWN",
+               hardware_model_name: HardwareModel.valuesById[result.hardware_model] ?? "DESCONOCIDO",
            };
         });
 
@@ -677,7 +677,7 @@ app.get('/api/v1/stats/hardware-models', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -698,7 +698,7 @@ app.get('/api/v1/text-messages', async (req, res) => {
         // if direct message node ids are provided, there should be exactly two node ids
         if(directMessageNodeIds !== undefined && directMessageNodeIds.length !== 2){
             res.status(400).json({
-                message: "direct_message_node_ids requires 2 node ids separated by a comma.",
+                message: "direct_message_node_ids requiere 2 IDs de nodo separados por una coma.",
             });
             return;
         }
@@ -757,7 +757,7 @@ app.get('/api/v1/text-messages', async (req, res) => {
 
     } catch(err) {
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -803,7 +803,7 @@ app.get('/api/v1/waypoints', async (req, res) => {
 
     } catch(err) {
         res.status(500).json({
-            message: "Something went wrong, try again later.",
+            message: "Algo ha ido mal, inténtalo de nuevo más tarde.",
         });
     }
 });
@@ -811,5 +811,5 @@ app.get('/api/v1/waypoints', async (req, res) => {
 // start express server
 const listener = app.listen(port, () => {
     const port = listener.address().port;
-    console.log(`Server running at http://127.0.0.1:${port}`);
+    console.log(`Servidor ejecutándose en http://127.0.0.1:${port}`);
 });
