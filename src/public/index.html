@@ -260,7 +260,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Dispositivos</span>
+                            <span class="tooltip-text">Nodos</span>
                         </div>
                     </a>
                     <a href="#" class="tooltip rounded-full hidden lg:block" onclick="goToRandomNode()">
@@ -668,7 +668,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="mx-auto text-sm font-medium text-gray-900">Received Msgs</div>
+                                    <div class="mx-auto text-sm font-medium text-gray-900">Msgs recividos</div>
                                 </a>
 
                                 <!-- gated messages -->
@@ -680,14 +680,14 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="mx-auto text-sm font-medium text-gray-900">Gated Msgs</div>
+                                    <div class="mx-auto text-sm font-medium text-gray-900">Msgs reenviados</div>
                                 </a>
 
                             </div>
 
                             <!-- details -->
                             <div>
-                                <div class="bg-gray-200 p-2 font-semibold">Details</div>
+                                <div class="bg-gray-200 p-2 font-semibold">Detalles</div>
                                 <ul role="list" class="flex-1 divide-y divide-gray-200">
 
                                     <!-- id -->
@@ -704,7 +704,7 @@
 
                                     <!-- role -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Role</div>
+                                        <div class="text-sm font-medium text-gray-900">Rol</div>
                                         <div class="ml-auto text-sm text-gray-700">{{ selectedNode.role_name }}</div>
                                     </li>
 
@@ -728,12 +728,12 @@
 
                             <!-- lora config -->
                             <div>
-                                <div class="bg-gray-200 p-2 font-semibold">LoRa Config</div>
+                                <div class="bg-gray-200 p-2 font-semibold">Config LoRa</div>
                                 <ul role="list" class="flex-1 divide-y divide-gray-200">
 
                                     <!-- region -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Region</div>
+                                        <div class="text-sm font-medium text-gray-900">Región</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.region_name">{{ selectedNode.region_name }} ({{ getRegionFrequencyRange(selectedNode.region_name) }})</span>
                                             <span v-else>???</span>
@@ -751,7 +751,7 @@
 
                                     <!-- has default channel -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Has Default Channel</div>
+                                        <div class="text-sm font-medium text-gray-900">Tiene Default Channel</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.has_default_channel != null">{{ selectedNode.has_default_channel ? "Yes" : "No" }}</span>
                                             <span v-else>???</span>
@@ -764,10 +764,10 @@
                             <!-- position -->
                             <div>
                                 <div @click.stop class="flex bg-gray-200 p-2 font-semibold">
-                                    <div class="my-auto">Position</div>
+                                    <div class="my-auto">Posición</div>
                                     <div class="ml-auto">
                                         <button @click="showNodePositionHistory(selectedNode.node_id)" type="button" class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                            Show History
+                                            Mostrar historial
                                         </button>
                                     </div>
                                 </div>
@@ -784,7 +784,7 @@
 
                                     <!-- altitude -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Altitude</div>
+                                        <div class="text-sm font-medium text-gray-900">Altitud</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.altitude">{{ selectedNode.altitude }}m</span>
                                             <span v-else>???</span>
@@ -797,12 +797,12 @@
                             <!-- device metrics -->
                             <div>
                                 <div class="flex bg-gray-200 p-2 font-semibold">
-                                    <div class="my-auto">Device Metrics</div>
+                                    <div class="my-auto">Métricas del dispositivo</div>
                                     <div class="my-auto ml-auto">
                                         <select v-model="deviceMetricsTimeRange" class="block w-full rounded-md border-0 py-0.5 pl-2 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-500 sm:text-sm sm:leading-6">
-                                            <option value="1d">1 Day</option>
-                                            <option value="3d">3 Days</option>
-                                            <option value="7d">7 Days</option>
+                                            <option value="1d">1 Dia</option>
+                                            <option value="3d">3 Dias</option>
+                                            <option value="7d">7 Dias</option>
                                         </select>
                                     </div>
                                 </div>
@@ -817,11 +817,11 @@
                                                     <div class="mx-auto flex space-x-2">
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-blue-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Battery Level</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Nivel de batería</div>
                                                         </div>
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-green-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Channel Utilization</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Utilización del canal</div>
                                                         </div>
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-orange-500 rounded-full"></div>
@@ -835,10 +835,10 @@
 
                                     <!-- battery level -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Battery Level</div>
+                                        <div class="text-sm font-medium text-gray-900">Nivel de batería</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.battery_level">
-                                                <span v-if="selectedNode.battery_level > 100">Plugged In</span>
+                                                <span v-if="selectedNode.battery_level > 100">Enchufado</span>
                                                 <span v-else>{{ selectedNode.battery_level }}%</span>
                                             </span>
                                             <span v-else>???</span>
@@ -856,7 +856,7 @@
 
                                     <!-- channel utilization -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Channel Utilization</div>
+                                        <div class="text-sm font-medium text-gray-900">Utilización del canal</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.channel_utilization">{{ Number(selectedNode.channel_utilization).toFixed(2) }}%</span>
                                             <span v-else>???</span>
@@ -874,7 +874,7 @@
 
                                     <!-- air util tx -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Uptime</div>
+                                        <div class="text-sm font-medium text-gray-900">Tiempo activo</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.uptime_seconds">{{ formatUptimeSeconds(selectedNode.uptime_seconds) }}</span>
                                             <span v-else>???</span>
@@ -887,12 +887,12 @@
                             <!-- environment metrics -->
                             <div>
                                 <div class="flex bg-gray-200 p-2 font-semibold">
-                                    <div class="my-auto">Environment Metrics</div>
+                                    <div class="my-auto">Metricas ambientales</div>
                                     <div class="my-auto ml-auto">
                                         <select v-model="environmentMetricsTimeRange" class="block w-full rounded-md border-0 py-0.5 pl-2 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-500 sm:text-sm sm:leading-6">
-                                            <option value="1d">1 Day</option>
-                                            <option value="3d">3 Days</option>
-                                            <option value="7d">7 Days</option>
+                                            <option value="1d">1 Dia</option>
+                                            <option value="3d">3 Dias</option>
+                                            <option value="7d">7 Dias</option>
                                         </select>
                                     </div>
                                 </div>
@@ -907,15 +907,15 @@
                                                     <div class="mx-auto flex space-x-2">
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-blue-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Temperature</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Temperatura</div>
                                                         </div>
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-green-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Humidity</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Humedad</div>
                                                         </div>
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-orange-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Pressure</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Presión</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -925,7 +925,7 @@
 
                                     <!-- temperature -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Temperature</div>
+                                        <div class="text-sm font-medium text-gray-900">Temperatura</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.temperature">{{ formatTemperature(selectedNode.temperature) }}</span>
                                             <span v-else>???</span>
@@ -934,7 +934,7 @@
 
                                     <!-- relative humidity -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Relative Humidity</div>
+                                        <div class="text-sm font-medium text-gray-900">Humedad relativa</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.relative_humidity">{{ Number(selectedNode.relative_humidity).toFixed(0) }}%</span>
                                             <span v-else>???</span>
@@ -943,7 +943,7 @@
 
                                     <!-- barometric pressure -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Barometric Pressure</div>
+                                        <div class="text-sm font-medium text-gray-900">Presión barométrica</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.barometric_pressure">{{ Number(selectedNode.barometric_pressure).toFixed(1) }}hPa</span>
                                             <span v-else>???</span>
@@ -956,12 +956,12 @@
                             <!-- power metrics -->
                             <div>
                                 <div class="flex bg-gray-200 p-2 font-semibold">
-                                    <div class="my-auto">Power Metrics</div>
+                                    <div class="my-auto">Métricas de energía</div>
                                     <div class="my-auto ml-auto">
                                         <select v-model="powerMetricsTimeRange" class="block w-full rounded-md border-0 py-0.5 pl-2 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-500 sm:text-sm sm:leading-6">
-                                            <option value="1d">1 Day</option>
-                                            <option value="3d">3 Days</option>
-                                            <option value="7d">7 Days</option>
+                                            <option value="1d">1 Dia</option>
+                                            <option value="3d">3 Dias</option>
+                                            <option value="7d">7 Dias</option>
                                         </select>
                                     </div>
                                 </div>
@@ -976,15 +976,15 @@
                                                     <div class="mx-auto flex space-x-2">
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-blue-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Channel 1</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Canal 1</div>
                                                         </div>
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-green-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Channel 2</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Canal 2</div>
                                                         </div>
                                                         <div class="flex mx-auto">
                                                             <div class="my-auto w-2 h-2 bg-orange-500 rounded-full"></div>
-                                                            <div class="my-auto ml-1 text-sm text-gray-500">Channel 3</div>
+                                                            <div class="my-auto ml-1 text-sm text-gray-500">Canal 3</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -994,7 +994,7 @@
 
                                     <!-- channel 1 -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Channel 1</div>
+                                        <div class="text-sm font-medium text-gray-900">Canal 1</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNodeLatestPowerMetric">
                                                 <span v-if="selectedNodeLatestPowerMetric?.ch1_voltage">{{ Number(selectedNodeLatestPowerMetric.ch1_voltage).toFixed(2) }}V</span>
@@ -1007,7 +1007,7 @@
 
                                     <!-- channel 2 -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Channel 2</div>
+                                        <div class="text-sm font-medium text-gray-900">Canal 2</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNodeLatestPowerMetric">
                                                 <span v-if="selectedNodeLatestPowerMetric?.ch2_voltage">{{ Number(selectedNodeLatestPowerMetric.ch2_voltage).toFixed(2) }}V</span>
@@ -1020,7 +1020,7 @@
 
                                     <!-- channel 3 -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Channel 3</div>
+                                        <div class="text-sm font-medium text-gray-900">Canal 3</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNodeLatestPowerMetric">
                                                 <span v-if="selectedNodeLatestPowerMetric?.ch3_voltage">{{ Number(selectedNodeLatestPowerMetric.ch3_voltage).toFixed(2) }}V</span>
@@ -1038,7 +1038,7 @@
                             <div>
                                 <div class="bg-gray-200 p-2">
                                     <div class="font-semibold">MQTT</div>
-                                    <div class="text-sm text-gray-600">Topics this node sent packets to</div>
+                                    <div class="text-sm text-gray-600">Paquetes enviados al topic MQTT:</div>
                                 </div>
                                 <ul role="list" class="flex-1 divide-y divide-gray-200">
                                     <template v-if="selectedNodeMqttMetrics.length > 0">
@@ -1061,7 +1061,7 @@
                                                 <div class="block flex-1 px-4 py-2">
                                                     <div class="relative flex min-w-0 flex-1 items-center">
                                                         <div class="truncate">
-                                                            <div class="text-sm text-gray-700">No packets seen on MQTT</div>
+                                                            <div class="text-sm text-gray-700">No hay paquetes en MQTT</div>
                                                         </div>
                                                     </div>
                                                 </div>
