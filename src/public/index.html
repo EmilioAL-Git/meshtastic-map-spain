@@ -3911,13 +3911,13 @@
 
         // determine if node was recently heard uplinking packets to mqtt
         const nodeHasUplinkedToMqttRecently = hasNodeUplinkedToMqttRecently(node);
-        var mqttStatus = `<span class="text-blue-700">Disconnected</span>`;
+        var mqttStatus = `<span class="text-blue-700">Desconectado</span>`;
         if(node.mqtt_connection_state_updated_at){
             var mqttStatusUpdatedAt = moment(new Date(node.mqtt_connection_state_updated_at)).fromNow();
             if(nodeHasUplinkedToMqttRecently){
-                mqttStatus = `<span><span class="text-green-700">Connected</span> (${mqttStatusUpdatedAt})</span>`;
+                mqttStatus = `<span><span class="text-green-700">Conectado</span> (${mqttStatusUpdatedAt})</span>`;
             } else {
-                mqttStatus = `<span><span class="text-blue-700">Disconnected</span> (${mqttStatusUpdatedAt})</span>`;
+                mqttStatus = `<span><span class="text-blue-700">Desconectado</span> (${mqttStatusUpdatedAt})</span>`;
             }
         }
 
@@ -3928,19 +3928,19 @@
             `<br/>Short Name: ${escapeString(node.short_name)}` +
             `<br/>MQTT: ${mqttStatus}` +
             (node.num_online_local_nodes != null ? `<br/>Local Nodes Online: ${node.num_online_local_nodes}` : '') +
-            (node.position_precision != null && node.position_precision !== 32 ? `<br/>Position Precision: ${formatPositionPrecision(node.position_precision)}` : '') +
-            `<br/><br/>Role: ${node.role_name}` +
+            (node.position_precision != null && node.position_precision !== 32 ? `<br/>Precisión de la posición: ${formatPositionPrecision(node.position_precision)}` : '') +
+            `<br/><br/>Rol: ${node.role_name}` +
             `<br/>Hardware: ${node.hardware_model_name}` +
             (node.firmware_version != null ? `<br/>Firmware: ${node.firmware_version}` : '') +
-            (node.region_name != null ? `<br/>LoRa Region: ${node.region_name} (${loraFrequencyRange})` : '') +
+            (node.region_name != null ? `<br/>Región LoRa: ${node.region_name} (${loraFrequencyRange})` : '') +
             (node.modem_preset_name != null ? `<br/>Modem Preset: ${node.modem_preset_name}` : '') +
-            (node.has_default_channel != null ? `<br/>Has Default Channel: ${node.has_default_channel ? "Yes" : "No"}` : '');
+            (node.has_default_channel != null ? `<br/>Canal predeterminado: ${node.has_default_channel ? "Yes" : "No"}` : '');
 
         if(node.battery_level){
             if(node.battery_level > 100){
-                tooltip += `<br/>Battery: ${node.battery_level > 100 ? 'Plugged In' : node.battery_level}`;
+                tooltip += `<br/>Batería: ${node.battery_level > 100 ? 'Enchufado' : node.battery_level}`;
             } else {
-                tooltip += `<br/>Battery: ${node.battery_level}%`;
+                tooltip += `<br/>Batería: ${node.battery_level}%`;
             }
         }
 
@@ -3958,20 +3958,20 @@
 
         // ignore alt above 42949000 due to https://github.com/meshtastic/firmware/issues/3109
         if(node.altitude && node.altitude < 42949000){
-            tooltip += `<br/>Altitude: ${node.altitude}m`;
+            tooltip += `<br/>Altitud: ${node.altitude}m`;
         }
 
         // bottom info
         tooltip += `<br/><br/>ID: ${node.node_id}`;
         tooltip += `<br/>Hex ID: ${node.node_id_hex}`;
-        tooltip += `<br/>Updated: ${moment(new Date(node.updated_at)).fromNow()}`;
-        tooltip += (node.neighbours_updated_at ? `<br/>Neighbours Updated: ${moment(new Date(node.neighbours_updated_at)).fromNow()}` : '');
-        tooltip += (node.position_updated_at ? `<br/>Position Updated: ${moment(new Date(node.position_updated_at)).fromNow()}` : '');
+        tooltip += `<br/>Actualizado: ${moment(new Date(node.updated_at)).fromNow()}`;
+        tooltip += (node.neighbours_updated_at ? `<br/>Neighbours Actualizados: ${moment(new Date(node.neighbours_updated_at)).fromNow()}` : '');
+        tooltip += (node.position_updated_at ? `<br/>Posición Actualizada: ${moment(new Date(node.position_updated_at)).fromNow()}` : '');
 
         // show details button
-        tooltip += `<br/><br/><button onclick="showNodeDetails(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">Show Full Details</button>`;
-        tooltip += `<br/><button onclick="showNodeNeighboursThatHeardUs(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">Show Neighbours (Heard Us)</button>`;
-        tooltip += `<br/><button onclick="showNodeNeighboursThatWeHeard(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200">Show Neighbours (We Heard)</button>`;
+        tooltip += `<br/><br/><button onclick="showNodeDetails(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">Mostrar todos los detalles</button>`;
+        tooltip += `<br/><button onclick="showNodeNeighboursThatHeardUs(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200 mb-1">Mostrar Neighbours (Nos han escuchado)</button>`;
+        tooltip += `<br/><button onclick="showNodeNeighboursThatWeHeard(${node.node_id});" class="border border-gray-300 bg-gray-100 p-1 w-full rounded hover:bg-gray-200">Mostrar Neighbours (Escuchados)</button>`;
         tooltip += `</div>`;
 
         return tooltip;
@@ -3985,7 +3985,7 @@
 
         var tooltip = `<b>${escapeString(waypoint.name)}</b>` +
             (waypoint.description ? `<br/>${escapeString(waypoint.description)}` : '') +
-            `<br/><br/>Expires: ${moment(new Date(waypoint.expire * 1000)).fromNow()}` +
+            `<br/><br/>Caduca: ${moment(new Date(waypoint.expire * 1000)).fromNow()}` +
             `<br/>Lat/Lng: ${waypoint.latitude}, ${waypoint.longitude}` +
             `<br/><br/>From ID: ${waypoint.from}` +
             `<br/>From Hex ID: !${Number(waypoint.from).toString(16)}`;
