@@ -198,7 +198,7 @@
 
                 <!-- search bar -->
                 <div class="mx-3 flex-1 relative" :class="{ 'hidden lg:block': !isShowingMobileSearch }">
-                    <input v-model="searchText" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="`Search ${nodes.length} nodes...`">
+                    <input v-model="searchText" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="`Buscar ${nodes.length} nodes...`">
                     <div v-if="searchText !== ''" class="absolute z-search bg-white w-full border border-gray-200 rounded-lg shadow-md mt-1 overflow-y-scroll max-h-80 divide-y divide-gray-200">
 
                         <template v-if="searchedNodes.length > 0">
