@@ -399,7 +399,7 @@
 
                                 <!-- welcome -->
                                 <div class="bg-green-100 rounded p-2 border border-green-200">
-                                    👋 Welcome to my open source map of Meshtastic nodes heard on MQTT.
+                                    👋 Bienvenido al mapa español de nodos meshtastic en MQTT.
                                 </div>
 
                                 <!-- features -->
@@ -1707,7 +1707,7 @@
         } catch(e) {}
 
         // overlays enabled by default
-        return ["Legend", "Position History"];
+        return ["Leyenda", "Historial de posición"];
 
     }
 
@@ -2820,9 +2820,9 @@
         div.style.backgroundColor = 'white';
         div.style.padding = '12px';
         div.innerHTML = `<div style="margin-bottom:6px;"><strong>Legend</strong></div>`
-            + `<div style="display:flex"><div class="icon-mqtt-connected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> MQTT Connected</div>`
-            + `<div style="display:flex"><div class="icon-mqtt-disconnected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> MQTT Disconnected</div>`
-            + `<div style="display:flex"><div class="icon-offline" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> Offline Too Long</div>`;
+            + `<div style="display:flex"><div class="icon-mqtt-connected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> MQTT Connectado</div>`
+            + `<div style="display:flex"><div class="icon-mqtt-disconnected" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> MQTT Desconectado</div>`
+            + `<div style="display:flex"><div class="icon-offline" style="width:12px;height:12px;margin-right:4px;margin-top:auto;margin-bottom:auto;"></div> Offline Mucho tiempo</div>`;
         return div;
     };
 
