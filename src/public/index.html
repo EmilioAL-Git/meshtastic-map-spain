@@ -1425,95 +1425,95 @@
 
                             <!-- configNodesOfflineAgeInSeconds -->
                             <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Nodes Offline Age</label>
-                                <div class="text-xs text-gray-600 mb-2">Nodes not updated within this time will show as red icons. Reload to update map.</div>
-                                <select v-model="configNodesOfflineAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option :value="null">Don't show as offline</option>
-                                    <option value="900">15 minutes</option>
-                                    <option value="1800">30 minutes</option>
-                                    <option value="2700">45 minutes</option>
-                                    <option value="3600">1 hour</option>
-                                    <option value="7200">2 hours</option>
-                                    <option value="10800">3 hours</option>
-                                    <option value="21600">6 hours</option>
-                                    <option value="43200">12 hours</option>
-                                    <option value="86400">24 hours</option>
-                                    <option value="172800">2 days</option>
-                                    <option value="259200">3 days</option>
-                                    <option value="345600">4 days</option>
-                                    <option value="432000">5 days</option>
-                                    <option value="518400">6 days</option>
-                                    <option value="604800">7 days</option>
-                                </select>
-                            </div>
+    <label class="block text-sm font-medium text-gray-900">Antigüedad para nodos inactivos</label>
+    <div class="text-xs text-gray-600 mb-2">Los nodos no actualizados en este periodo aparecerán con iconos rojos. Recarga para actualizar el mapa.</div>
+    <select v-model="configNodesOfflineAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <option :value="null">No mostrar como inactivos</option>
+        <option value="900">15 minutos</option>
+        <option value="1800">30 minutos</option>
+        <option value="2700">45 minutos</option>
+        <option value="3600">1 hora</option>
+        <option value="7200">2 horas</option>
+        <option value="10800">3 horas</option>
+        <option value="21600">6 horas</option>
+        <option value="43200">12 horas</option>
+        <option value="86400">24 horas</option>
+        <option value="172800">2 días</option>
+        <option value="259200">3 días</option>
+        <option value="345600">4 días</option>
+        <option value="432000">5 días</option>
+        <option value="518400">6 días</option>
+        <option value="604800">7 días</option>
+    </select>
+</div>
 
                             <!-- configWaypointsMaxAgeInSeconds -->
                             <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Waypoints Max Age</label>
-                                <div class="text-xs text-gray-600 mb-2">Waypoints not updated within this time are hidden. Reload to update map.</div>
-                                <select v-model="configWaypointsMaxAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option :value="null">Show All</option>
-                                    <option value="900">15 minutes</option>
-                                    <option value="1800">30 minutes</option>
-                                    <option value="3600">1 hour</option>
-                                    <option value="10800">3 hours</option>
-                                    <option value="21600">6 hours</option>
-                                    <option value="43200">12 hours</option>
-                                    <option value="86400">24 hours</option>
-                                    <option value="172800">2 days</option>
-                                    <option value="259200">3 days</option>
-                                    <option value="345600">4 days</option>
-                                    <option value="432000">5 days</option>
-                                    <option value="518400">6 days</option>
-                                    <option value="604800">7 days</option>
-                                </select>
-                            </div>
+    <label class="block text-sm font-medium text-gray-900">Antigüedad máxima de puntos de ruta</label>
+    <div class="text-xs text-gray-600 mb-2">Los puntos de ruta no actualizados en este periodo se ocultarán. Recarga para actualizar el mapa.</div>
+    <select v-model="configWaypointsMaxAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <option :value="null">Mostrar todos</option>
+        <option value="900">15 minutos</option>
+        <option value="1800">30 minutos</option>
+        <option value="3600">1 hora</option>
+        <option value="10800">3 horas</option>
+        <option value="21600">6 horas</option>
+        <option value="43200">12 horas</option>
+        <option value="86400">24 horas</option>
+        <option value="172800">2 días</option>
+        <option value="259200">3 días</option>
+        <option value="345600">4 días</option>
+        <option value="432000">5 días</option>
+        <option value="518400">6 días</option>
+        <option value="604800">7 días</option>
+    </select>
+</div>
 
                             <!-- configNeighboursMaxDistanceInMeters -->
-                            <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Neighbours Max Distance (meters)</label>
-                                <div class="text-xs text-gray-600 mb-2">Neighbours further than this are hidden. Reload to update map.</div>
-                                <input type="number" v-model="configNeighboursMaxDistanceInMeters" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            </div>
+<div class="p-2">
+    <label class="block text-sm font-medium text-gray-900">Distancia máxima de Neighbours (metros)</label>
+    <div class="text-xs text-gray-600 mb-2">Los Neighbours más lejanos que esto se ocultarán. Recarga para actualizar el mapa.</div>
+    <input type="number" v-model="configNeighboursMaxDistanceInMeters" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+</div>
 
-                            <!-- configZoomLevelGoToNode -->
-                            <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Zoom Level (go to node)</label>
-                                <div class="text-xs text-gray-600 mb-2">How far to zoom map when navigating to a node.</div>
-                                <input type="number" v-model="configZoomLevelGoToNode" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            </div>
+<!-- configZoomLevelGoToNode -->
+<div class="p-2">
+    <label class="block text-sm font-medium text-gray-900">Nivel de Zoom (ir a nodo)</label>
+    <div class="text-xs text-gray-600 mb-2">Cuánto hacer zoom al navegar a un nodo.</div>
+    <input type="number" v-model="configZoomLevelGoToNode" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+</div>
 
-                            <!-- configTemperatureFormat -->
-                            <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Temperature Format</label>
-                                <div class="text-xs text-gray-600 mb-2">Metrics will be shown in the selected format.</div>
-                                <select v-model="configTemperatureFormat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option value="celsius">Celsius (ºC)</option>
-                                    <option value="fahrenheit">Fahrenheit (ºF)</option>
-                                </select>
-                            </div>
+<!-- configTemperatureFormat -->
+<div class="p-2">
+    <label class="block text-sm font-medium text-gray-900">Formato de Temperatura</label>
+    <div class="text-xs text-gray-600 mb-2">Las métricas se mostrarán en el formato seleccionado.</div>
+    <select v-model="configTemperatureFormat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <option value="celsius">Celsius (ºC)</option>
+        <option value="fahrenheit">Fahrenheit (ºF)</option>
+    </select>
+</div>
 
-                            <!-- configAutoUpdatePositionInUrl -->
-                            <div class="p-2">
-                                <div class="flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input type="checkbox" v-model="configAutoUpdatePositionInUrl" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required>
-                                    </div>
-                                    <label class="ml-2 text-sm font-medium text-gray-900">Auto Update Position in URL</label>
-                                </div>
-                                <div class="text-xs text-gray-600">Sets lat/lng/zoom as query parameters.</div>
-                            </div>
+<!-- configAutoUpdatePositionInUrl -->
+<div class="p-2">
+    <div class="flex items-start">
+        <div class="flex items-center h-5">
+            <input type="checkbox" v-model="configAutoUpdatePositionInUrl" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required>
+        </div>
+        <label class="ml-2 text-sm font-medium text-gray-900">Actualizar posición automáticamente en URL</label>
+    </div>
+    <div class="text-xs text-gray-600">Establece lat/lng/zoom como parámetros de consulta.</div>
+</div>
 
-                            <!-- configEnableMapAnimations -->
-                            <div class="p-2">
-                                <div class="flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input type="checkbox" v-model="configEnableMapAnimations" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required>
-                                    </div>
-                                    <label class="ml-2 text-sm font-medium text-gray-900">Enable Map Animations</label>
-                                </div>
-                                <div class="text-xs text-gray-600">Map will animate flying to nodes.</div>
-                            </div>
+<!-- configEnableMapAnimations -->
+<div class="p-2">
+    <div class="flex items-start">
+        <div class="flex items-center h-5">
+            <input type="checkbox" v-model="configEnableMapAnimations" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required>
+        </div>
+        <label class="ml-2 text-sm font-medium text-gray-900">Activar animaciones del mapa</label>
+    </div>
+    <div class="text-xs text-gray-600">El mapa animará el desplazamiento a los nodos.</div>
+</div>
 
                         </div>
 
@@ -1542,8 +1542,8 @@
                             <div class="flex items-start justify-between">
                                 <div>
                                     <h2 class="font-bold">{{ selectedNodeToShowNeighbours.short_name }} Neighbours</h2>
-                                    <h3 v-if="selectedNodeToShowNeighboursType === 'we_heard'" class="text-sm">Nodes heard by {{ selectedNodeToShowNeighbours.short_name }}</h3>
-                                    <h3 v-if="selectedNodeToShowNeighboursType === 'heard_us'" class="text-sm">Nodes that heard {{ selectedNodeToShowNeighbours.short_name }}</h3>
+                                    <h3 v-if="selectedNodeToShowNeighboursType === 'we_heard'" class="text-sm">Nodos escuchados por {{ selectedNodeToShowNeighbours.short_name }}</h3>
+                                    <h3 v-if="selectedNodeToShowNeighboursType === 'heard_us'" class="text-sm">Nodos que escucharon {{ selectedNodeToShowNeighbours.short_name }}</h3>
                                 </div>
                                 <div class="my-auto ml-3 flex h-7 items-center">
                                     <a href="javascript:void(0)" class="rounded-full" @click="dismissShowingNodeNeighbours">
@@ -1706,7 +1706,7 @@
         } catch(e) {}
 
         // overlays enabled by default
-        return ["Legend", "Position History"];
+        return ["Leyenda", "Historial de posición"];
 
     }
 
