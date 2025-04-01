@@ -3,16 +3,16 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Meshtastic Map</title>
-    <meta name="title" content="Meshtastic Map">
-    <meta name="description" content="An interactive map of all Meshtastic nodes.">
+    <title>Mapa de Meshtastic</title>
+    <meta name="title" content="Mapa de Meshtastic">
+    <meta name="description" content="Un mapa interactivo de todos los nodos de Meshtastic.">
     <link rel="icon" type="image/png" href="/icon.png"/>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://meshtastic.liamcottle.net">
-    <meta property="og:title" content="Meshtastic Map">
-    <meta property="og:description" content="An interactive map of all Meshtastic nodes.">
+    <meta property="og:title" content="Mapa de Meshtastic">
+    <meta property="og:description" content="Un mapa interactivo de todos los nodos de Meshtastic.">
 
     <!-- tailwind css -->
     <script src="assets/js/tailwindcss/tailwind-v3.4.3-forms-v0.5.7.js"></script>
@@ -150,9 +150,9 @@
 
                 <!-- info -->
                 <div class="my-auto leading-tight">
-                    <div class="font-bold">Service Announcement</div>
+                   <div class="font-bold">Anuncio del Servicio</div>
                     <div class="text-sm">
-                        <span>Changes were made to mqtt.meshtastic.org. Uplink your nodes to <button @click="isShowingInfoModal = true" type="button" class="link">our MQTT server</button> to continue showing on this map.</span>
+                        <span>Se han realizado cambios en mqtt.meshtastic.org. Conecta tus nodos a <button @click="isShowingInfoModal = true" type="button" class="link">nuestro servidor MQTT de españa</button> para seguir apareciendo en este mapa.</span>
                     </div>
                 </div>
 
@@ -190,9 +190,9 @@
 
                 <!-- app info -->
                 <div v-if="!isShowingMobileSearch" class="my-auto leading-tight">
-                    <div class="font-bold">Meshtastic Map</div>
+                    <div class="font-bold">Mapa Meshtastic España</div>
                     <div class="text-sm">
-                        Created by <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a>
+                        Creado por <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a>
                     </div>
                 </div>
 
@@ -216,13 +216,13 @@
                                 </div>
                             </div>
                             <div v-if="searchedNodes.length === 500" class="text-gray-500 text-sm px-2 py-1">
-                                Only the first 500 results are shown.
+                                Solo se muestran los primeros 500 resultados.
                             </div>
                         </template>
 
                         <template v-else>
                             <div class="p-2">
-                                No results found...
+                                No se han encontrado resultados...
                             </div>
                         </template>
 
@@ -260,7 +260,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Devices</span>
+                            <span class="tooltip-text">Dispositivos</span>
                         </div>
                     </a>
                     <a href="#" class="tooltip rounded-full hidden lg:block" onclick="goToRandomNode()">
@@ -274,7 +274,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Random</span>
+                            <span class="tooltip-text">Aleatorio</span>
                         </div>
                     </a>
                     <a @click="isShowingSettings = true" href="javascript:void(0)" class="tooltip rounded-full">
@@ -285,7 +285,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Settings</span>
+                            <span class="tooltip-text">Ajustes</span>
                         </div>
                     </a>
                     <a href="#" class="tooltip rounded-full" onclick="reload()">
@@ -297,7 +297,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Reload</span>
+                            <span class="tooltip-text">Recarga</span>
                         </div>
                     </a>
                 </div>
@@ -358,8 +358,8 @@
                                 <!-- app info -->
                                 <div class="w-full mx-auto text-center">
                                     <img src="./icon.png" class="mx-auto w-16 h-16 rounded mb-1"/>
-                                    <h1 class="font-bold">Meshtastic Map</h1>
-                                    <h2>Created by <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a></h2>
+                                    <h1 class="font-bold">Mapa Meshtastic España</h1>
+                                    <h2>Creado por <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a></h2>
                                     <div class="w-full mx-auto text-center space-x-1 mt-2">
 
                                         <a target="_blank" href="https://twitter.com/liamcottle" title="Twitter" class="raise inline-flex items-center p-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-[#1da1f2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1da1f2]">
