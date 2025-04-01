@@ -1075,7 +1075,7 @@
                             <div>
                                 <div class="bg-gray-200 p-2">
                                     <div class="font-semibold">Trace Routes</div>
-                                    <div class="text-sm text-gray-600">Only 5 most recent are shown</div>
+                                    <div class="text-sm text-gray-600">Se muestran los 5 más recientes</div>
                                 </div>
                                 <ul role="list" class="flex-1 divide-y divide-gray-200">
                                     <template v-if="selectedNodeTraceroutes.length > 0">
@@ -1098,7 +1098,7 @@
                                                 <div class="block flex-1 px-4 py-2">
                                                     <div class="relative flex min-w-0 flex-1 items-center">
                                                         <div class="truncate">
-                                                            <div class="text-sm text-gray-700">No traceroutes seen on MQTT</div>
+                                                            <div class="text-sm text-gray-700">Sin traceroutes en MQTT</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1110,24 +1110,24 @@
 
                             <!-- other -->
                             <div>
-                                <div class="bg-gray-200 p-2 font-semibold">Other</div>
+                                <div class="bg-gray-200 p-2 font-semibold">Otro</div>
                                 <ul role="list" class="flex-1 divide-y divide-gray-200">
 
                                     <!-- first seen -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">First Seen</div>
+                                        <div class="text-sm font-medium text-gray-900">Visto por primera vez</div>
                                         <div class="ml-auto text-sm text-gray-700">{{ moment(new Date(selectedNode.created_at)).fromNow() }}</div>
                                     </li>
 
                                     <!-- last seen -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Last Seen</div>
+                                        <div class="text-sm font-medium text-gray-900">Visto última vez</div>
                                         <div class="ml-auto text-sm text-gray-700">{{ moment(new Date(selectedNode.updated_at)).fromNow() }}</div>
                                     </li>
 
                                     <!-- neighbours updated -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Neighbours Updated</div>
+                                        <div class="text-sm font-medium text-gray-900">Neighbours Actualizados</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.neighbours_updated_at">{{ moment(new Date(selectedNode.neighbours_updated_at)).fromNow() }}</span>
                                             <span v-else>???</span>
@@ -1136,7 +1136,7 @@
 
                                     <!-- position updated -->
                                     <li class="flex p-3">
-                                        <div class="text-sm font-medium text-gray-900">Position Updated</div>
+                                        <div class="text-sm font-medium text-gray-900">Posición actualizada</div>
                                         <div class="ml-auto text-sm text-gray-700">
                                             <span v-if="selectedNode.position_updated_at">{{ moment(new Date(selectedNode.position_updated_at)).fromNow() }}</span>
                                             <span v-else>???</span>
@@ -1149,10 +1149,10 @@
                             <!-- share -->
                             <div>
                                 <div class="flex bg-gray-200 p-2 font-semibold">
-                                    <div class="my-auto">Share Link</div>
+                                    <div class="my-auto">Enlace para compartir</div>
                                     <div class="ml-auto">
                                         <button @click="copyShareLinkForNode(selectedNode.node_id)" type="button" class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                            Copy
+                                            Copiar
                                         </button>
                                     </div>
                                 </div>
@@ -1359,8 +1359,8 @@
                         <div class="p-2 border-b border-gray-200 shadow">
                             <div class="flex items-start justify-between">
                                 <div>
-                                    <h2 class="font-bold">Settings</h2>
-                                    <h3 class="text-sm">Changes are only saved in this browser.</h3>
+                                    <h2 class="font-bold">Ajustes</h2>
+                                    <h3 class="text-sm">Los cambios solo se aplican a este navegador.</h3>
                                 </div>
                                 <div class="my-auto ml-3 flex h-7 items-center">
                                     <a href="javascript:void(0)" class="rounded-full" @click="isShowingSettings = false">
@@ -1380,48 +1380,48 @@
 
                             <!-- configNodesMaxAgeInSeconds -->
                             <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Nodes Max Age</label>
-                                <div class="text-xs text-gray-600 mb-2">Nodes not updated within this time are hidden. Reload to update map.</div>
+                                <label class="block text-sm font-medium text-gray-900">Tiempo máximo del nodo</label>
+                                <div class="text-xs text-gray-600 mb-2">Los nodos no actualizados en este intervalo de tiempo no aparecerán. Recarga la página para actualizar.</div>
                                 <select v-model="configNodesMaxAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option :value="null">Show All</option>
-                                    <option value="900">15 minutes</option>
-                                    <option value="1800">30 minutes</option>
-                                    <option value="3600">1 hour</option>
-                                    <option value="10800">3 hours</option>
-                                    <option value="21600">6 hours</option>
-                                    <option value="43200">12 hours</option>
-                                    <option value="86400">24 hours</option>
-                                    <option value="172800">2 days</option>
-                                    <option value="259200">3 days</option>
-                                    <option value="345600">4 days</option>
-                                    <option value="432000">5 days</option>
-                                    <option value="518400">6 days</option>
-                                    <option value="604800">7 days</option>
+                                    <option :value="null">Mostrar todos</option>
+                                    <option value="900">15 minutos</option>
+                                    <option value="1800">30 minutos</option>
+                                    <option value="3600">1 hora</option>
+                                    <option value="10800">3 horas</option>
+                                    <option value="21600">6 horas</option>
+                                    <option value="43200">12 horas</option>
+                                    <option value="86400">24 horas</option>
+                                    <option value="172800">2 días</option>
+                                    <option value="259200">3 días</option>
+                                    <option value="345600">4 días</option>
+                                    <option value="432000">5 días</option>
+                                    <option value="518400">6 días</option>
+                                    <option value="604800">7 días</option>
                                 </select>
                             </div>
 
                             <!-- configNodesDisconnectedAgeInSeconds -->
                             <div class="p-2">
-                                <label class="block text-sm font-medium text-gray-900">Nodes Disconnected Age</label>
-                                <div class="text-xs text-gray-600 mb-2">Nodes that have not uplinked to MQTT in this time will show as blue icons. Reload to update map.</div>
-                                <select v-model="configNodesDisconnectedAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option value="900">15 minutes</option>
-                                    <option value="1800">30 minutes</option>
-                                    <option value="2700">45 minutes</option>
-                                    <option value="3600">1 hour</option>
-                                    <option value="7200">2 hours</option>
-                                    <option value="10800">3 hours</option>
-                                    <option value="21600">6 hours</option>
-                                    <option value="43200">12 hours</option>
-                                    <option value="86400">24 hours</option>
-                                    <option value="172800">2 days</option>
-                                    <option value="259200">3 days</option>
-                                    <option value="345600">4 days</option>
-                                    <option value="432000">5 days</option>
-                                    <option value="518400">6 days</option>
-                                    <option value="604800">7 days</option>
-                                </select>
-                            </div>
+    <label class="block text-sm font-medium text-gray-900">Antigüedad para nodos desconectados</label>
+    <div class="text-xs text-gray-600 mb-2">Los nodos que no se hayan conectado a MQTT en este tiempo aparecerán con iconos azules. Recarga para actualizar el mapa.</div>
+    <select v-model="configNodesDisconnectedAgeInSeconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <option value="900">15 minutos</option>
+        <option value="1800">30 minutos</option>
+        <option value="2700">45 minutos</option>
+        <option value="3600">1 hora</option>
+        <option value="7200">2 horas</option>
+        <option value="10800">3 horas</option>
+        <option value="21600">6 horas</option>
+        <option value="43200">12 horas</option>
+        <option value="86400">24 horas</option>
+        <option value="172800">2 días</option>
+        <option value="259200">3 días</option>
+        <option value="345600">4 días</option>
+        <option value="432000">5 días</option>
+        <option value="518400">6 días</option>
+        <option value="604800">7 días</option>
+    </select>
+</div>
 
                             <!-- configNodesOfflineAgeInSeconds -->
                             <div class="p-2">
