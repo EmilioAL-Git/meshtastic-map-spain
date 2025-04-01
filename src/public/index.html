@@ -3,16 +3,16 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Meshtastic Map</title>
-    <meta name="title" content="Meshtastic Map">
-    <meta name="description" content="An interactive map of all Meshtastic nodes.">
+    <title>Mapa de Meshtastic</title>
+    <meta name="title" content="Mapa de Meshtastic">
+    <meta name="description" content="Un mapa interactivo de todos los nodos de Meshtastic.">
     <link rel="icon" type="image/png" href="/icon.png"/>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://meshtastic.liamcottle.net">
-    <meta property="og:title" content="Meshtastic Map">
-    <meta property="og:description" content="An interactive map of all Meshtastic nodes.">
+    <meta property="og:title" content="Mapa de Meshtastic">
+    <meta property="og:description" content="Un mapa interactivo de todos los nodos de Meshtastic.">
 
     <!-- tailwind css -->
     <script src="assets/js/tailwindcss/tailwind-v3.4.3-forms-v0.5.7.js"></script>
@@ -150,9 +150,9 @@
 
                 <!-- info -->
                 <div class="my-auto leading-tight">
-                    <div class="font-bold">Service Announcement</div>
+                    <div class="font-bold">Anuncio de Servicio</div>
                     <div class="text-sm">
-                        <span>Changes were made to mqtt.meshtastic.org. Uplink your nodes to <button @click="isShowingInfoModal = true" type="button" class="link">our MQTT server</button> to continue showing on this map.</span>
+                        <span>Se han realizado cambios en mqtt.meshtastic.org. Conecta tus nodos a <button @click="isShowingInfoModal = true" type="button" class="link">nuestro servidor MQTT</button> para seguir apareciendo en este mapa.</span>
                     </div>
                 </div>
 
@@ -173,8 +173,8 @@
             <div class="flex bg-white p-2 border-gray-300 border-b h-16">
 
                 <!-- close mobile search button -->
-                <div v-if="isShowingMobileSearch" class="my-auto">
-                    <a @click="isShowingMobileSearch = false" href="javascript:void(0)" class="rounded-full">
+                <div v-if="isShowingMobileBuscar" class="my-auto">
+                    <a @click="isShowingMobileBuscar = false" href="javascript:void(0)" class="rounded-full">
                         <div class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
@@ -184,25 +184,25 @@
                 </div>
 
                 <!-- icon -->
-                <div v-if="!isShowingMobileSearch" class="hidden sm:block my-auto mr-3">
+                <div v-if="!isShowingMobileBuscar" class="hidden sm:block my-auto mr-3">
                     <img class="w-10 h-10 rounded" src="icon.png"/>
                 </div>
 
                 <!-- app info -->
-                <div v-if="!isShowingMobileSearch" class="my-auto leading-tight">
-                    <div class="font-bold">Meshtastic Map</div>
+                <div v-if="!isShowingMobileBuscar" class="my-auto leading-tight">
+                    <div class="font-bold">Mapa de Meshtastic</div>
                     <div class="text-sm">
-                        Created by <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a>
+                        Creado por <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a>
                     </div>
                 </div>
 
                 <!-- search bar -->
-                <div class="mx-3 flex-1 relative" :class="{ 'hidden lg:block': !isShowingMobileSearch }">
-                    <input v-model="searchText" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="`Search ${nodes.length} nodes...`">
+                <div class="mx-3 flex-1 relative" :class="{ 'hidden lg:block': !isShowingMobileBuscar }">
+                    <input v-model="searchText" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="`Buscar ${nodes.length} nodes...`">
                     <div v-if="searchText !== ''" class="absolute z-search bg-white w-full border border-gray-200 rounded-lg shadow-md mt-1 overflow-y-scroll max-h-80 divide-y divide-gray-200">
 
                         <template v-if="searchedNodes.length > 0">
-                            <div @click="onSearchResultNodeClick(node)" class="flex space-x-2 p-2 hover:bg-gray-100 cursor-pointer" v-for="node of searchedNodes">
+                            <div @click="onBuscarResultNodeClick(node)" class="flex space-x-2 p-2 hover:bg-gray-100 cursor-pointer" v-for="node of searchedNodes">
                                 <div>
                                     <div class="flex rounded-full h-12 w-12 text-white shadow" :class="[ `bg-[${getNodeColour(node.node_id)}]`, `text-[${getNodeTextColour(node.node_id)}]` ]">
                                         <div class="mx-auto my-auto drop-shadow-sm">{{ node.short_name }}</div>
@@ -216,13 +216,13 @@
                                 </div>
                             </div>
                             <div v-if="searchedNodes.length === 500" class="text-gray-500 text-sm px-2 py-1">
-                                Only the first 500 results are shown.
+                                Solo se muestran los primeros 500 resultados.
                             </div>
                         </template>
 
                         <template v-else>
                             <div class="p-2">
-                                No results found...
+                                No se han encontrado resultados...
                             </div>
                         </template>
 
@@ -230,7 +230,7 @@
                 </div>
 
                 <!-- header action buttons -->
-                <div v-if="!isShowingMobileSearch" class="flex my-auto ml-auto mr-0 sm:mr-2 space-x-1 sm:space-x-2">
+                <div v-if="!isShowingMobileBuscar" class="flex my-auto ml-auto mr-0 sm:mr-2 space-x-1 sm:space-x-2">
                     <a @click="isShowingInfoModal = true" href="javascript:void(0)" class="tooltip rounded-full">
                         <div class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -238,10 +238,10 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">About</span>
+                            <span class="tooltip-text">Acerca de</span>
                         </div>
                     </a>
-                    <a @click="isShowingMobileSearch = true" href="javascript:void(0)" class="tooltip rounded-full block lg:hidden">
+                    <a @click="isShowingMobileBuscar = true" href="javascript:void(0)" class="tooltip rounded-full block lg:hidden">
                         <div id="search-button" class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -250,7 +250,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Search</span>
+                            <span class="tooltip-text">Buscar</span>
                         </div>
                     </a>
                     <a @click="isShowingHardwareModels = !isShowingHardwareModels" href="javascript:void(0)" class="tooltip rounded-full hidden sm:block">
@@ -260,10 +260,10 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Devices</span>
+                            <span class="tooltip-text">Dispositivos</span>
                         </div>
                     </a>
-                    <a href="#" class="tooltip rounded-full hidden lg:block" onclick="goToRandomNode()">
+                    <a href="#" class="tooltip rounded-full hidden lg:block" onclick="goToAleatorioNode()">
                         <div id="random-button" class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
                             <svg class="w-6 h-6"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -274,7 +274,7 @@
                             </svg>
                         </div>
                         <div class="hidden sm:block">
-                            <span class="tooltip-text">Random</span>
+                            <span class="tooltip-text">Aleatorio</span>
                         </div>
                     </a>
                     <a @click="isShowingSettings = true" href="javascript:void(0)" class="tooltip rounded-full">
@@ -358,8 +358,8 @@
                                 <!-- app info -->
                                 <div class="w-full mx-auto text-center">
                                     <img src="./icon.png" class="mx-auto w-16 h-16 rounded mb-1"/>
-                                    <h1 class="font-bold">Meshtastic Map</h1>
-                                    <h2>Created by <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a></h2>
+                                    <h1 class="font-bold">Mapa de Meshtastic</h1>
+                                    <h2>Creado por <a class="link" target="_blank" href="https://liamcottle.com">Liam Cottle</a></h2>
                                     <div class="w-full mx-auto text-center space-x-1 mt-2">
 
                                         <a target="_blank" href="https://twitter.com/liamcottle" title="Twitter" class="raise inline-flex items-center p-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-[#1da1f2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1da1f2]">
@@ -425,7 +425,7 @@
                                     <div class="space-y-2">
                                         <div class="bg-gray-100 rounded p-2 border border-gray-200">
                                             <div class="font-semibold">How do I add my node to the map?</div>
-                                            <div>Your node, or a node that hears your node must uplink to our MQTT server.</div>
+                                            <div>Your node, or a node that hears your node must uplink to nuestro servidor MQTT.</div>
                                             <div>Your position packet must be unencrypted, or encrypted with the default key.</div>
                                             <div>If your node has v2.5 firmware or newer, you must enable "OK to MQTT".</div>
                                             <div>Use the MQTT server details below to uplink to this map.</div>
@@ -525,7 +525,7 @@
                         <div class="p-2 border-b border-gray-200 shadow">
                             <div class="flex items-start justify-between">
                                 <div>
-                                    <h2 class="font-bold">Meshtastic Devices</h2>
+                                    <h2 class="font-bold">Meshtastic Dispositivos</h2>
                                     <h3 class="text-sm">Ordered by most popular</h3>
                                 </div>
                                 <div class="my-auto ml-3 flex h-7 items-center">
@@ -1815,7 +1815,7 @@
                 hardwareModelStats: null,
 
                 isShowingInfoModal: this.shouldShowInfoModal(),
-                isShowingMobileSearch: false,
+                isShowingMobileBuscar: false,
                 isShowingSettings: false,
 
                 nodes: [],
@@ -1857,7 +1857,7 @@
             // handle map click callback from outside of vue
             window._onMapClick = () => {
                 this.searchText = "";
-                this.isShowingMobileSearch = false;
+                this.isShowingMobileBuscar = false;
             };
 
             // handle node callback from outside of vue
@@ -2478,13 +2478,13 @@
             findNodeMarkerById: function(id) {
                 return window.findNodeMarkerById(id);
             },
-            onSearchResultNodeClick: function(node) {
+            onBuscarResultNodeClick: function(node) {
 
                 // clear search
                 this.searchText = "";
 
                 // hide search
-                this.isShowingMobileSearch = false;
+                this.isShowingMobileBuscar = false;
 
                 // go to node
                 if(window.goToNode(node.node_id)){
@@ -2997,7 +2997,7 @@
 
     }
 
-    function goToRandomNode() {
+    function goToAleatorioNode() {
         if(nodes.length > 0){
             const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
             if(randomNode){
@@ -3130,7 +3130,7 @@
         const node2ElevationMSL = ""; // node2.altitude ?? "";
 
         // generate terrain profile image url
-        return "https://heywhatsthat.com/bin/profile-0904.cgi?" + new URLSearchParams({
+        return "https://heywhatsthat.com/bin/profile-0904.cgi?" + new URLBuscarParams({
             src: "meshtastic.liamcottle.net",
             axes: 1, // include grid lines and a scale
             metric: 1, // show metric units
@@ -4012,7 +4012,7 @@
     };
 
     // parse url params
-    var queryParams = new URLSearchParams(location.search);
+    var queryParams = new URLBuscarParams(location.search);
     var queryNodeId = queryParams.get('node_id');
     var queryLat = queryParams.get('lat');
     var queryLng = queryParams.get('lng');
