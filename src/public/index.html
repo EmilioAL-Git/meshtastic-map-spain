@@ -419,37 +419,36 @@
 </div>
                                 </div>
 
-                                <!-- faq -->
                                 <div>
-                                    <div class="font-bold mb-2">FAQ</div>
-                                    <div class="space-y-2">
-                                        <div class="bg-gray-100 rounded p-2 border border-gray-200">
-                                            <div class="font-semibold">How do I add my node to the map?</div>
-                                            <div>Your node, or a node that hears your node must uplink to our MQTT server.</div>
-                                            <div>Your position packet must be unencrypted, or encrypted with the default key.</div>
-                                            <div>If your node has v2.5 firmware or newer, you must enable "OK to MQTT".</div>
-                                            <div>Use the MQTT server details below to uplink to this map.</div>
-                                        </div>
-                                        <div class="bg-gray-100 rounded p-2 border border-gray-200">
-                                            <div class="font-semibold">What MQTT server should I use?</div>
-                                            <ul class="list-disc list-inside">
-                                                <li>Address: mqtt.meshtastic.liamcottle.net</li>
-                                                <li>Username: uplink</li>
-                                                <li>Password: uplink</li>
-                                                <li>Encryption Enabled: Yes</li>
-                                                <li>JSON Output: No</li>
-                                                <li>TLS Enabled: No</li>
-                                            </ul>
-                                            <div>Please note, nodes can only uplink to this server. Downlink is disabled.</div>
-                                            <div>We suggest running dedicated nodes for uplinking to the map.</div>
-                                        </div>
-                                        <div class="bg-gray-100 rounded p-2 border border-gray-200">
-                                            <div class="font-semibold">How do I remove my node from the map?</div>
-                                            <div>Nodes that have not been heard for 7 days are automatically removed.</div>
-                                            <div>Disable position reporting in your node to prevent it coming back.</div>
-                                            <div>Use custom encryption keys so the public can't see your position data.</div>
-                                            <div>If your node has v2.5 firmware or newer, we ignore packets if "OK to MQTT" is disabled.</div>
-                                            <div>To have your node removed now, please <a target="_blank" href="https://liamcottle.com/contact" class="link">contact me</a>.</div>
+    <div class="font-bold mb-2">Preguntas Frecuentes</div>
+    <div class="space-y-2">
+        <div class="bg-gray-100 rounded p-2 border border-gray-200">
+            <div class="font-semibold">¿Cómo añado mi nodo al mapa?</div>
+            <div>Tu nodo, o un nodo que escuche tu nodo debe conectarse a nuestro servidor MQTT.</div>
+            <div>Tu paquete de posición debe estar sin cifrar, o cifrado con la clave por defecto.</div>
+            <div>Si tu nodo tiene firmware v2.5 o superior, debes activar "OK to MQTT".</div>
+            <div>Usa los detalles del servidor MQTT mas abajo para conectarte a este mapa.</div>
+        </div>
+        <div class="bg-gray-100 rounded p-2 border border-gray-200">
+            <div class="font-semibold">¿Qué servidor MQTT debo usar?</div>
+            <ul class="list-disc list-inside">
+                <li>Dirección: mqtt.meshtastic.es (No activo de momento)</li>
+                <li>Usuario: meshdev</li>
+                <li>Contraseña: large4cats</li>
+                <li>Cifrado Activado: Sí</li>
+                <li>Salida JSON: No</li>
+                <li>TLS Activado: No</li>
+            </ul>
+            <div>Nota: Uplink y Downlink activados en este servidor.</div>
+            <div>Sugerimos usar nodos dedicados para enviar datos al mapa.</div>
+        </div>
+        <div class="bg-gray-100 rounded p-2 border border-gray-200">
+            <div class="font-semibold">¿Cómo elimino mi nodo del mapa?</div>
+            <div>Los nodos que no son detectados durante 7 días se eliminan automáticamente.</div>
+            <div>Desactiva el reporte de posición en tu nodo para evitar que vuelva a aparecer.</div>
+            <div>Usa claves de cifrado personalizadas para que el público no pueda ver tus datos de posición.</div>
+            <div>Si tu nodo tiene firmware v2.5 o superior, se ignoraraán los paquetes si "OK to MQTT" está desactivado.</div>
+                                            
                                         </div>
                                         <div class="bg-gray-100 rounded p-2 border border-gray-200">
                                             <div class="font-semibold">How do I see neighbours a node heard?</div>
