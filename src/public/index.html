@@ -3950,15 +3950,15 @@
         }
 
         if(node.voltage){
-            tooltip += `<br/>Voltage: ${Number(node.voltage).toFixed(2)}V`;
+            tooltip += `<br/>Voltaje: ${Number(node.voltage).toFixed(2)}V`;
         }
 
         if(node.channel_utilization){
-            tooltip += `<br/>Ch Util: ${Number(node.channel_utilization).toFixed(2)}%`;
+            tooltip += `<br/>Uso de canal: ${Number(node.channel_utilization).toFixed(2)}%`;
         }
 
         if(node.air_util_tx){
-            tooltip += `<br/>Air Util: ${Number(node.air_util_tx).toFixed(2)}%`;
+            tooltip += `<br/>Uso del Aire: ${Number(node.air_util_tx).toFixed(2)}%`;
         }
 
         // ignore alt above 42949000 due to https://github.com/meshtastic/firmware/issues/3109
